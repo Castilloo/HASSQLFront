@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Editar producto</title>
+</head>
+<body class="container  ">
+    <h1>Editar producto</h1>
+
+    <form id="form-product">
+        <div class="div-nombre">
+            <label>Nombre: </label>
+            <input type="text" name="nombre" required/>
+        </div>
+        <div class="div-img">
+            <label>Imagen: </label>
+            <input type="file" required/>
+        </div>
+        <div class="div-categoria">
+            <label for="">Categoría:</label>
+            <select name="categoria" required>
+                <option value="opcion1">Opcion 1</option>
+                <option value="opcion2">Opcion 2</option>
+                <option value="opcion3">Opcion 3</option>
+            </select>
+        </div>
+        <div class="div-marca">
+            <label>Marca:</label>
+            <select name="marca" required>
+                <option value="opcion1">Opcion 1</option>
+                <option value="opcion2">Opcion 2</option>
+                <option value="opcion3">Opcion 3</option>
+            </select>
+        </div>
+        
+        <div class="div-descripcion">
+            <label>Descripción: </label>
+            <input type="text" name="descripcion" required/>
+        </div>
+        <div class="div-cantidad">
+            <label>Cantidad: </label>
+            <input type="number" name="cantidad" required/>
+        </div>
+        <div class="div-precio">
+            <label>Precio: </label>
+            <input type="number" name="precio" required/>
+        </div>
+        <div class="div-btns">
+            <button type="submit">Guardar producto</button>
+            <button type="reset">Cancelar</button>
+        </div>
+    </form>
+
+    <script src="producto.js"></script>
+</body>
+</html>
