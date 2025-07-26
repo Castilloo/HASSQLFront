@@ -9,30 +9,25 @@
 <body class="container  ">
     <h1>Editar producto</h1>
 
-    <form id="form-product">
+    <form id="form-product" enctype="multipart/form-data">
         <div class="div-nombre">
             <label>Nombre: </label>
             <input type="text" name="nombre" required/>
         </div>
         <div class="div-img">
-            <label>Imagen: </label>
-            <input type="file" required/>
+            <label>Subir imagen: </label>
+            <input type="file" name="imagen" accept="image/jpeg"/>
+            <br>
+            <label>Imagen actual: </label>
+            <img id="img-preview" src="" alt="Vista previa" width="150" />
         </div>
         <div class="div-categoria">
             <label for="">Categoría:</label>
-            <select name="categoria" required>
-                <option value="opcion1">Opcion 1</option>
-                <option value="opcion2">Opcion 2</option>
-                <option value="opcion3">Opcion 3</option>
-            </select>
+            <select name="idCategoria" required></select>
         </div>
         <div class="div-marca">
             <label>Marca:</label>
-            <select name="marca" required>
-                <option value="opcion1">Opcion 1</option>
-                <option value="opcion2">Opcion 2</option>
-                <option value="opcion3">Opcion 3</option>
-            </select>
+            <select name="idMarca" required></select>
         </div>
         
         <div class="div-descripcion">
@@ -45,10 +40,10 @@
         </div>
         <div class="div-precio">
             <label>Precio: </label>
-            <input type="number" name="precio" required/>
+            <input type="number" name="precio" step="0.01"/>
         </div>
         <div class="div-btns">
-            <button type="submit">Guardar producto</button>
+            <button type="submit">Actualizar producto</button>
             <button type="reset">Cancelar</button>
         </div>
     </form>

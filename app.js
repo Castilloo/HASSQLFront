@@ -1,9 +1,16 @@
-const apiUrl = "https://fakestoreapi.com/products";
+// const apiUrl = "https://fakestoreapi.com/products";
+const apiUrl = "http://localhost:5132/api/v1";
+
 
 async function cargarProductos()
 {
-    const res = await fetch(apiUrl);
-    const productos = await res.json();
+    // const res = await fetch(apiUrl);
+    // const productos = await res.json();
+
+    const res = await fetch(`${apiUrl}/productos`);
+    const { data } = await res.json();
+
+    console.log(data)
 
     const thead = document.querySelector('#tabla-productos thead');
     thead.innerHTML = "";
@@ -14,26 +21,38 @@ async function cargarProductos()
     let h3 = document.querySelector('#cargando');
     
 
-    productos.forEach((p) =>
+    data.forEach(p =>
     {
+        const imageUrl = (p.imagen.includes('http')) ? p.imagen : `http://localhost:5132${p.imagen}`;
+        
         const row = `
         <tr>
-            <td>${p.id}</td>
-            <td>${p.title}</td>
-            <td>$${p.price}</td>
+            <td>${p.referencia}</td>
+            <td><img src="${imageUrl}"></td> 
+            <td>${p.nombre}</td>
+            <td>${p.marca}</td>
+            <td>${p.categoria}</td>
+            <td>${p.descripcion}</td>
+            <td>${p.cantidad}</td>
+            <td>$${p.precio}</td>
             <td class="acciones">
-                <button class="btn-editar" onclick="gestionarProducto('${p.id}')">Editar</button>
-                <button class="btn-eliminar" onclick="eliminarProducto('${p.id}')">Eliminar</button>
+                <button class="btn-editar" onclick="gestionarProducto('${p.referencia}')">Editar</button>
+                <button class="btn-eliminar" onclick="eliminarProducto('${p.referencia}')">Eliminar</button>
             </td>
         </tr>
     `;
         tbody.insertAdjacentHTML("beforeend", row);
     });
 
-    if(productos !== null){
+    if(data !== null){
         thead.innerHTML = `<tr>
-                <th>ID</th>
-                <th>Nombre</th>
+                <th>Ref.</th>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Marca</th>
+                <th>Categoría</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
                 <th>Precio</th>
                 <th>Acciones</th>
             </tr>`;
@@ -45,46 +64,18 @@ async function cargarProductos()
     }
 }
 
-function gestionarProducto(id) {
-    if(id)
-        window.location.href = `editar.html?id=${id}`;
+function gestionarProducto(ref) {
+    if(ref)
+        window.location.href = `editar.html?referencia=${ref}`;
     else 
         window.location.href = "crear.html";
 }
 
-// async function editarProducto()
-// {
-//     const nombre = document.getElementById("nombre").value.trim();  
-//     const precio = parseFloat(document.getElementById("precio").value);
-
-//     if (!nombre || isNaN(precio))
-//     {
-//         alert("Debe ingresar nombre y precio válido.");
-//         return;
-//     }
-
-//     const res = await fetch(apiUrl, {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ nombre, precio }),
-//     });
-
-//     if (res.ok)
-//     {
-//         document.getElementById("nombre").value = "";
-//         document.getElementById("precio").value = "";
-//         cargarProductos();
-//     } else
-//     {
-//         alert("Error al crear el producto.");
-//     }
-// }
-
-async function eliminarProducto(id)
+async function eliminarProducto(referencia)
 {
     if (!confirm("¿Seguro que deseas eliminar este producto?")) return;
 
-    const res = await fetch(`${apiUrl}/${id}`, { method: "DELETE" });
+    const res = await fetch(`${apiUrl}/borrar-producto/${referencia}`, { method: "DELETE" });
 
     if (res.ok)
     {

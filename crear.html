@@ -4,48 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Editar producto</title>
+    <title>Crear producto</title>
 </head>
 <body class="container">
     <h1>Crear producto</h1>
 
-    <form >
+    <form id="form-product" enctype="multipart/form-data">
         <div class="div-nombre">
             <label>Nombre: </label>
-            <input type="text" name="nombre" required/>
+            <input type="text" name="nombre" />
+        </div>
+        <div class="div-ref">
+            <label>Referencia: </label>
+            <input type="text" name="referencia" />
         </div>
         <div class="div-img">
             <label>Imagen: </label>
-            <input type="file" required/>
+            <input type="file" name="imagen" accept="image/jpg"/>
         </div>
         <div class="div-categoria">
             <label for="">Categoría: </label>
-            <select name="categoria" required>
-                <option value="opcion1">Opcion 1</option>
-                <option value="opcion2">Opcion 2</option>
-                <option value="opcion3">Opcion 3</option>
+            <select name="idCategoria" >
             </select>
         </div>
         <div class="div-marca">
             <label>Marca:</label>
-            <select name="marca" required>
-                <option value="opcion1">Opcion 1</option>
-                <option value="opcion2">Opcion 2</option>
-                <option value="opcion3">Opcion 3</option>
+            <select name="idMarca" >
             </select>
         </div>
         
         <div class="div-descripcion">
             <label>Descripción: </label>
-            <input type="text" name="descripcion" required/>
+            <input type="text" name="descripcion" />
         </div>
         <div class="div-cantidad">
             <label>Cantidad: </label>
-            <input type="number" name="cantidad" required/>
+            <input type="number" name="cantidad" />
         </div>
         <div class="div-precio">
             <label>Precio: </label>
-            <input type="number" name="precio" required/>
+            <input type="number" name="precio" step="0.01"/>
         </div>
         <div class="div-btns">
             <button type="submit">Guardar producto</button>
