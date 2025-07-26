@@ -41,3 +41,11 @@ Este proyecto consiste en una aplicación de gestión de productos que permite c
 - `editar.html`: formulario para crear o editar productos.
 - `producto.js`: maneja toda la lógica de cargar datos, validar formularios, enviar productos y manejar imágenes.
 
+## 🗃️ Scripts SQL
+
+Los archivos `.sql` contienen:
+
+- **Creación de tablas:** `Productos`, `Marcas`, `Categorias`.
+- **Relaciones y claves foráneas.**
+- **Procedimientos almacenados para CRUD.**
+- **Datos iniciales.**
