@@ -2,32 +2,6 @@
 
 Este proyecto consiste en una aplicación de gestión de productos que permite crear, editar, eliminar y listar productos, con soporte para imágenes y relación con marcas y categorías.
 
----
-
-## 📂 Estructura del Proyecto
-
-Proyecto
-│
-├── Backend (API REST en C# .NET)
-│ ├── Controllers/
-│ ├── Models/
-│ ├── Context/
-│ ├── Dto/
-│ ├── Responses/
-│ ├── Repositories/
-│ ├── wwwroot/uploads/
-│ ├── appsettings.json
-│ └── Program.cs
-│ ├── Procedure.sql
-│ ├── Queries.sql
-
-├── Frontend (HTML, CSS, JS puro)
-│ ├── index.html
-│ ├── editar.html
-│ ├── style.css
-│ ├── producto.js
-
----
 
 ## 🧠 Tecnologías Usadas
 
